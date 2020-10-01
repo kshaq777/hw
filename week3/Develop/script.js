@@ -38,7 +38,7 @@ function generatePassword() {
   var ncString = '0123456789';
 
 
-// Create the final library of characters based on user choices
+  // Create the final library of characters based on user choices
   var finalString = '';
 
   function finalStringConcat() {
