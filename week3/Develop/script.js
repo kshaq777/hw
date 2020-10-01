@@ -16,10 +16,12 @@ generateBtn.addEventListener("click", writePassword);
 
 // Prompt user and generate PW based on parameters
 function generatePassword() {
-  var pwLength = prompt("How long would you like your password to be?")
+  var pwLength = prompt("How long would you like your password to be?");
+  console.log("Length: " + pwLength);
 
   if ((isNaN(pwLength)) || (pwLength < 8 || pwLength > 128)) {
-    alert('Invalid entry. Must enter a number between 8 and 128.')
+    alert('Invalid entry. Must enter a number between 8 and 128.');
+    return "";
   }
 
   var sc = confirm('Would you like to use $peci@l characters?');
@@ -34,28 +36,30 @@ function generatePassword() {
 
   var finalString = '';
 
-
   function finalStringConcat() {
 
     if (sc === true) {
       finalString = finalString.concat(scString);
+      console.log("Include Special Characters");
     }
 
     if (lc === true) {
       finalString = finalString.concat(lcString);
+      console.log("Include lower case characters");
     }
 
     if (uc === true) {
       finalString = finalString.concat(ucString);
+      console.log("Include upper case characters");
     }
 
     if (nc === true) {
       finalString = finalString.concat(ncString);
+      console.log("Include numbers");
     }
   }
 
   finalStringConcat();
-  console.log(finalString);
 
   var pwResult = '';
   function makePW() {
@@ -65,8 +69,6 @@ function generatePassword() {
   }
 
   makePW();
-  console.log(pwResult);
-  console.log(pwLength);
   return pwResult;
 
 }
